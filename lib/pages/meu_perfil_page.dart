@@ -3,15 +3,15 @@ import 'package:trilhaapp/repositories/linguagens_repository.dart';
 import 'package:trilhaapp/repositories/nivel_repository.dart';
 import 'package:trilhaapp/shared/widgets/text_label.dart';
 
-class MeuPerfil extends StatefulWidget {
+class MeuPerfilPage extends StatefulWidget {
 
-  const MeuPerfil({super.key});
+  const MeuPerfilPage({super.key});
 
   @override
-  State<MeuPerfil> createState() => _MeuPerfilState();
+  State<MeuPerfilPage> createState() => _MeuPerfilPageState();
 }
 
-class _MeuPerfilState extends State<MeuPerfil> {
+class _MeuPerfilPageState extends State<MeuPerfilPage> {
   TextEditingController nomeController = TextEditingController(text: "");
   TextEditingController dobController = TextEditingController(text: "");
   DateTime? dataNascimento;

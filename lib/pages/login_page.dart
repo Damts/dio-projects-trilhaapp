@@ -40,9 +40,11 @@ class _LoginPageState extends State<LoginPage> {
                     // Imagem Logo
                     Expanded(
                       flex: 8,
-                      child: Image.network(
-                        "https://lpunderground.com/LPU_share_image.v2.jpg", 
-                      ),
+                      child: 
+                        Image.asset('lib/assets/images/LPU.jpg'),
+                      // Image.network(
+                      //   "https://lpunderground.com/LPU_share_image.v2.jpg", 
+                      // ),
                     ),
 
                     Expanded(
