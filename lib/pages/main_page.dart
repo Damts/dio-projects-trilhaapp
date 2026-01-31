@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:trilhaapp/pages/meu_perfil.dart';
-import 'package:trilhaapp/pages/pagina1.dart';
-import 'package:trilhaapp/pages/pagina2.dart';
-import 'package:trilhaapp/pages/pagina3.dart';
+import 'package:trilhaapp/pages/card_page.dart';
+import 'package:trilhaapp/pages/image_assets.dart';
+import 'package:trilhaapp/pages/list_view.dart';
+import 'package:trilhaapp/pages/list_view_horizontal.dart';
+import 'package:trilhaapp/pages/tarefa_page.dart';
+import 'package:trilhaapp/shared/widgets/custom_drawer.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -32,87 +34,7 @@ class _MainPageState extends State<MainPage> {
         ),
 
         // Drawer
-        drawer: Drawer(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Icon(Icons.person, size: 60),
-                Divider(),
-                SizedBox(height: 10),
-
-                // Meu Perfil
-                InkWell(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 5),
-                    width: double.infinity,
-                    child: Row(
-                      children: [
-                        Icon(Icons.person),
-                        Text("Meu Perfil"),
-                      ],
-                    )),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context, 
-                      MaterialPageRoute(
-                        builder: (context) => const MeuPerfil(),
-                      ),
-                    );
-                  },
-                ),
-                SizedBox(height: 10),
-
-                // Configurações
-                InkWell(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 5),
-                    width: double.infinity,
-                    child: Row(
-                      children: [
-                        Icon(Icons.settings),
-                        Text("Configurações"),
-                      ],
-                    )),
-                  onTap: () {},
-                ),
-                SizedBox(height: 10),
-
-                // Termos de Uso
-                InkWell(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 5),
-                    width: double.infinity,
-                    child: Row(
-                      children: [
-                        Icon(Icons.rule),
-                        Text("Termos de uso e Privacidade"),
-                      ],
-                    )),
-                  onTap: () {},
-                ),
-                Divider(),
-                SizedBox(height: 10),
-
-                // Sair
-                InkWell(
-                  child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 5),
-                    width: double.infinity,
-                    child: Row(
-                      children: [
-                        Icon(Icons.exit_to_app),
-                        Text("Sair"),
-                      ],
-                    )),
-                  onTap: () {},
-                ),
-              ],
-            ),
-          ),
-        ),
+        drawer: CustomDrawer(),
 
         // Body
         body: Column(
@@ -129,15 +51,18 @@ class _MainPageState extends State<MainPage> {
                   });
                 },
                 children: [
-                  Pagina1(),
-                  Pagina2(),
-                  Pagina3(),
+                  CardPage(),
+                  ImageAssetsPage(),
+                  ListViewPage(),
+                  ListViewHorizontalPage(),
+                  TarefaPage(),
                 ],
               ),
             ),
 
             // Bottom Navigation bar
             BottomNavigationBar(
+              type: BottomNavigationBarType.fixed, // Utilizar quando 4+ Itens
               currentIndex: paginaSelecionada,
               onTap: (value) {
                 setState(() {
@@ -146,17 +71,25 @@ class _MainPageState extends State<MainPage> {
               },
               items: [
                 BottomNavigationBarItem(
-                  label: "Home",
+                  label: "News",
                   icon: Icon(Icons.home),
                 ),
                 BottomNavigationBarItem(
-                  label: "Tickets",
+                  label: "Images",
                   icon: Icon(Icons.airplane_ticket),
                 ),
                 BottomNavigationBarItem(
-                  label: "Newsletter",
+                  label: "ListView",
                   icon: Icon(Icons.newspaper),
-                )
+                ),
+                BottomNavigationBarItem(
+                  label: "Lista",
+                  icon: Icon(Icons.list),
+                ),
+                BottomNavigationBarItem(
+                  label: "Tarefas",
+                  icon: Icon(Icons.task),
+                ),
               ],
             )
           ],
