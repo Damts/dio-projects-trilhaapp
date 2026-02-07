@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trilhaapp/pages/calculadora_imc.dart';
 import 'package:trilhaapp/pages/card_page.dart';
 import 'package:trilhaapp/pages/image_assets.dart';
 import 'package:trilhaapp/pages/list_view.dart';
@@ -56,6 +57,7 @@ class _MainPageState extends State<MainPage> {
                   ListViewPage(),
                   ListViewHorizontalPage(),
                   TarefaPage(),
+                  CalculadoraImc(),
                 ],
               ),
             ),
@@ -89,6 +91,10 @@ class _MainPageState extends State<MainPage> {
                 BottomNavigationBarItem(
                   label: "Tarefas",
                   icon: Icon(Icons.task),
+                ),
+                BottomNavigationBarItem(
+                  label: "Calculadora IMC",
+                  icon: Icon(Icons.calculate)
                 ),
               ],
             )

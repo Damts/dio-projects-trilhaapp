@@ -74,7 +74,7 @@ class _TarefaPageState extends State<TarefaPage> {
         }, 
         child: Icon(Icons.add),
       ),
-      // ListView Builder para lsita de tarefas
+      // ListView Builder para lista de tarefas
       body: Container(
         margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         child: Column(
