@@ -1,5 +1,5 @@
 class LinguagensRepository {
-  List<String> retornLinguagens() {
+  List<String> retornaLinguagens() {
     return ["Dart/Flutter", "JavaScript", "PHP", "Rust"];
   }
 }
