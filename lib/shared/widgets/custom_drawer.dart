@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:trilhaapp/pages/configuracoes/configuracoes_hive_page.dart';
+import 'package:trilhaapp/pages/configuracoes/configuracoes_shared_preferences_page.dart';
+import 'package:trilhaapp/pages/dados_cadastrais/dados_cadastrais_hive.dart';
 import 'package:trilhaapp/pages/login_page.dart';
-import 'package:trilhaapp/pages/meu_perfil_page.dart';
+import 'package:trilhaapp/pages/dados_cadastrais/dados_cadastrais_shared_preferences.dart';
+import 'package:trilhaapp/pages/numeros_aleatorios/numeros_aleatorios_hive_page.dart';
+import 'package:trilhaapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preference_page.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -72,6 +77,7 @@ class CustomDrawer extends StatelessWidget {
               child: Row(
                 children: [
                   Icon(Icons.person),
+                  const SizedBox(width: 4),
                   Text("Meu Perfil"),
                 ],
               )),
@@ -80,7 +86,7 @@ class CustomDrawer extends StatelessWidget {
               Navigator.push(
                 context, 
                 MaterialPageRoute(
-                  builder: (context) => const MeuPerfilPage(),
+                  builder: (context) => const DadosCadastraisHivePage(),
                 ),
               );
             },
@@ -95,10 +101,14 @@ class CustomDrawer extends StatelessWidget {
               child: Row(
                 children: [
                   Icon(Icons.settings),
+                  const SizedBox(width: 4),
                   Text("Configurações"),
                 ],
               )),
-            onTap: () {},
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const ConfiguracoesSharedPreferencesPage()));
+            },
           ),
           SizedBox(height: 10),
       
@@ -110,6 +120,7 @@ class CustomDrawer extends StatelessWidget {
               child: Row(
                 children: [
                   Icon(Icons.rule),
+                  const SizedBox(width: 4),
                   Text("Termos de uso e Privacidade"),
                 ],
               )),
@@ -151,6 +162,26 @@ class CustomDrawer extends StatelessWidget {
           ),
           Divider(),
           SizedBox(height: 10),
+
+          // Gerador de numeros aleatorios
+          InkWell(
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+              width: double.infinity,
+              child: Row(
+                children: [
+                  Icon(Icons.numbers),
+                  const SizedBox(width: 4),
+                  Text("Gerador de Numeros"),
+                ],
+              )),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const NumerosAleatoriosHivePage()));
+            },
+          ),
+          Divider(),
+          SizedBox(height: 10),
       
           // Sair
           InkWell(
@@ -160,6 +191,7 @@ class CustomDrawer extends StatelessWidget {
               child: Row(
                 children: [
                   Icon(Icons.exit_to_app),
+                  const SizedBox(width: 4),
                   Text("Sair"),
                 ],
               )),

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:trilhaapp/repositories/linguagens_repository.dart';
 import 'package:trilhaapp/repositories/nivel_repository.dart';
+import 'package:trilhaapp/services/app_storage_service.dart';
 import 'package:trilhaapp/shared/widgets/text_label.dart';
 
-class MeuPerfilPage extends StatefulWidget {
+class DadosCadastraisSharedPreferencesPage extends StatefulWidget {
 
-  const MeuPerfilPage({super.key});
+  const DadosCadastraisSharedPreferencesPage({super.key});
 
   @override
-  State<MeuPerfilPage> createState() => _MeuPerfilPageState();
+  State<DadosCadastraisSharedPreferencesPage> createState() => _DadosCadastraisSharedPreferencesPageState();
 }
 
-class _MeuPerfilPageState extends State<MeuPerfilPage> {
+class _DadosCadastraisSharedPreferencesPageState extends State<DadosCadastraisSharedPreferencesPage> {
   TextEditingController nomeController = TextEditingController(text: "");
   TextEditingController dobController = TextEditingController(text: "");
   DateTime? dataNascimento;
@@ -22,18 +23,34 @@ class _MeuPerfilPageState extends State<MeuPerfilPage> {
 
   var linguagensRepository = LinguagensRepository();
   var linguagens = [];
-  var linguagensSelecionadas = [];
+  List<String> linguagensSelecionadas = [];
 
   double salarioEscolhido = 0;
   int tempoExperiencia = 0;
+
+  AppStorageService storage = AppStorageService();
 
   bool salvando = false;
 
   @override
   void initState() {
     niveis = nivelRepository.retornaNiveis();
-    linguagens = linguagensRepository.retornLinguagens();
+    linguagens = linguagensRepository.retornaLinguagens();
     super.initState();
+    carregarDados();
+  }
+
+  void carregarDados() async {
+    nomeController.text = await storage.getDadosCadastraisNome();
+    dobController.text = await storage.getDadosCadastraisDOB();
+    if (dobController.text.isNotEmpty) {
+      dataNascimento = DateTime.parse(dobController.text);
+    }
+    nivelSelecionado = await storage.getDadosCadastraisNivelExp();
+    linguagensSelecionadas = await storage.getDadosCadastraisLinguagens();
+    tempoExperiencia = await storage.getDadosCadastraisTempoExp();
+    salarioEscolhido = await storage.getDadosCadastraisSalario();
+    setState(() { });
   }
 
   // Lista de componentes
@@ -119,8 +136,8 @@ class _MeuPerfilPageState extends State<MeuPerfilPage> {
                       dense: false, //compacta as opções
                       title: Text(linguagem),
                       value: linguagensSelecionadas.contains(linguagem), 
-                      onChanged: (value) {
-                        if (value == true) {
+                      onChanged: (bool? value) {
+                        if (value!) {
                           setState(() {
                             value = true;
                             linguagensSelecionadas.add(linguagem);
@@ -164,7 +181,7 @@ class _MeuPerfilPageState extends State<MeuPerfilPage> {
 
                 // Botão Salvar
                 TextButton(
-                  onPressed: () {
+                  onPressed: () async {
                     setState(() {
                       salvando = false;
                     });
@@ -224,6 +241,13 @@ class _MeuPerfilPageState extends State<MeuPerfilPage> {
                       );
                       return;
                     }
+
+                    await storage.setDadosCadastraisNome(nomeController.text);
+                    await storage.setDadosCadastraisDOB(dataNascimento!);
+                    await storage.setDadosCadastraisNivelExp(nivelSelecionado);
+                    await storage.setDadosCadastraisLinguagens(linguagensSelecionadas);
+                    await storage.setDadosCadastraisTempoExp(tempoExperiencia);
+                    await storage.setDadosCadastraisSalario(salarioEscolhido);
 
                     setState(() {
                       salvando = true;
