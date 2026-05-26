@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hive/hive.dart';
 import 'package:trilhaapp/models/dados_cadastrais_model.dart';
 import 'package:trilhaapp/models/tarefa_hive_model.dart';
@@ -6,6 +7,9 @@ import 'package:trilhaapp/my_app.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
 void main() async {
+  // Carrega o dotenv
+  await dotenv.load();
+  
   // Para o HIVE 
   WidgetsFlutterBinding.ensureInitialized();
   

@@ -7,6 +7,7 @@ import 'package:trilhaapp/pages/list_view.dart';
 import 'package:trilhaapp/pages/list_view_horizontal.dart';
 import 'package:trilhaapp/pages/tarefa_page/tarefa_hive_page.dart';
 import 'package:trilhaapp/pages/tarefa_page/tarefa_sqlite_page.dart';
+import 'package:trilhaapp/pages/consulta_cep.dart';
 import 'package:trilhaapp/shared/widgets/custom_drawer.dart';
 
 class MainPage extends StatefulWidget {
@@ -54,8 +55,9 @@ class _MainPageState extends State<MainPage> {
                   });
                 },
                 children: [
+                  ConsultaCep(),
                   CardPage(),
-                  ImageAssetsPage(),
+                  // ImageAssetsPage(),
                   ListViewPage(),
                   ListViewHorizontalPage(),
                   TarefaSQLitePage(),
@@ -75,11 +77,11 @@ class _MainPageState extends State<MainPage> {
               },
               items: [
                 BottomNavigationBarItem(
-                  label: "News",
-                  icon: Icon(Icons.home),
+                  label: "HTTP",
+                  icon: Icon(Icons.get_app_rounded),
                 ),
                 BottomNavigationBarItem(
-                  label: "Images",
+                  label: "Card",
                   icon: Icon(Icons.airplane_ticket),
                 ),
                 BottomNavigationBarItem(

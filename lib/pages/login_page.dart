@@ -10,8 +10,8 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
-  String email = "";
-  String senha = "";
+  String email = "email";
+  String senha = "1234";
   bool isPasswordHiden = true;
 
   TextEditingController emailController = TextEditingController();

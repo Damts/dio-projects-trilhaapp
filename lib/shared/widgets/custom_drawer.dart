@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trilhaapp/pages/characters/characters_page.dart';
 import 'package:trilhaapp/pages/configuracoes/configuracoes_hive_page.dart';
 import 'package:trilhaapp/pages/configuracoes/configuracoes_shared_preferences_page.dart';
 import 'package:trilhaapp/pages/dados_cadastrais/dados_cadastrais_hive.dart';
@@ -6,6 +7,11 @@ import 'package:trilhaapp/pages/login_page.dart';
 import 'package:trilhaapp/pages/dados_cadastrais/dados_cadastrais_shared_preferences.dart';
 import 'package:trilhaapp/pages/numeros_aleatorios/numeros_aleatorios_hive_page.dart';
 import 'package:trilhaapp/pages/numeros_aleatorios/numeros_aleatorios_shared_preference_page.dart';
+import 'package:trilhaapp/pages/posts/dio/posts_dio_page.dart';
+import 'package:trilhaapp/pages/posts/http/posts_http_page.dart';
+import 'package:trilhaapp/pages/tarefa_page/tarefa_http_page.dart';
+import 'package:trilhaapp/repositories/back4app/tarefas_b4app_repository.dart';
+import 'package:trilhaapp/repositories/marvel/marvel_repository.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -14,8 +20,7 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       shape: Border(),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: ListView(
         children: [
 
           // Header de Usuario
@@ -178,6 +183,68 @@ class CustomDrawer extends StatelessWidget {
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context, MaterialPageRoute(builder: (context) => const NumerosAleatoriosHivePage()));
+            },
+          ),
+          SizedBox(height: 10),
+          // Pegando POST via API
+          InkWell(
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+              width: double.infinity,
+              child: Row(
+                children: [
+                  Icon(Icons.post_add),
+                  const SizedBox(width: 4),
+                  Text("Posts com API"),
+                ],
+              )),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const PostsDioPage()));
+            },
+          ),
+          Divider(),
+          SizedBox(height: 10),
+          // Pegando Herois via API
+          // InkWell(
+          //   child: Container(
+          //     padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+          //     width: double.infinity,
+          //     child: Row(
+          //       children: [
+          //         Icon(Icons.help),
+          //         const SizedBox(width: 4),
+          //         Text("Hérois com API"),
+          //       ],
+          //     )),
+          //   onTap: () async {
+          //     debugPrint('Aqui deveria ter herois, API não existe mais');
+          //     // var marvelRepository = MarvelRepository();
+          //     // var heroes = await marvelRepository.getCharacters();
+          //     // print('$heroes');
+          //     Navigator.pop(context);
+          //     Navigator.push(context, MaterialPageRoute(builder: (context) => const CharactersPage()));
+          //   },
+          // ),
+          // Divider(),
+          // SizedBox(height: 10),
+
+          // Tarefas HTTP
+          // Pegando POST via API
+          InkWell(
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+              width: double.infinity,
+              child: Row(
+                children: [
+                  Icon(Icons.work_outline),
+                  const SizedBox(width: 4),
+                  Text("Tarefas com HTTP"),
+                ],
+              )),
+            onTap: () async {
+              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const TarefaHttpPage()));
             },
           ),
           Divider(),
