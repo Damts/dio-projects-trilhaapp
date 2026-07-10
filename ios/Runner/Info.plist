@@ -4,7 +4,7 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>CFBundleDisplayName</key>
+	<key>App Dio</key>
 	<string>Trilhaapp</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
@@ -45,5 +45,20 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>pt</string>
+		<string>en</string>
+	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to location when open.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This app needs access to location when in use and in the background.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs camera access to scan QR codes and record video</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs photos access to get photo from photo library</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>This app needs microphone access to record video</string>
 </dict>
 </plist>

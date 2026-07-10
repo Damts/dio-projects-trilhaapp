@@ -40,10 +40,9 @@ class _MainPageState extends State<MainPage> {
         // Drawer
         drawer: CustomDrawer(),
 
-        // Body
+        // Body com Pageview e cards no bottom
         body: Column(
           children: [
-
             // Page View
             Expanded(
               child: PageView(

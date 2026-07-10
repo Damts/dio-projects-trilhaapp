@@ -57,7 +57,7 @@ class _TarefaHttpPageState extends State<TarefaHttpPage> {
                       TextButton(
                           onPressed: () async {
                             await tarefaRepository.criarTarefa(TarefaBack4AppModel.criar(descricaoContoller.text, false));
-                            Navigator.pop(context);
+                            if (context.mounted) Navigator.pop(context);
                             obterTarefas();
                             setState(() {});
                           },

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:trilhaapp/pages/main_page.dart';
+import 'package:trilhaapp/pages/splash_screen/splash_screen_delay_page.dart';
+import 'package:trilhaapp/pages/splash_screen/splash_screen_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,8 +16,8 @@ class _LoginPageState extends State<LoginPage> {
   String senha = "1234";
   bool isPasswordHiden = true;
 
-  TextEditingController emailController = TextEditingController();
-  TextEditingController senhaController = TextEditingController();
+  TextEditingController emailController = TextEditingController(text: 'email');
+  TextEditingController senhaController = TextEditingController(text: '1234');
 
   @override
   Widget build(BuildContext context) {
@@ -171,7 +173,7 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.pushReplacement(
                             context, 
                             MaterialPageRoute(
-                              builder: (context) => const MainPage()
+                              builder: (context) => const SplashScreenDelayPage()
                             ),
                           );
                         } else {

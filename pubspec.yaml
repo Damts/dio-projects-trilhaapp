@@ -15,26 +15,67 @@ dependencies:
   cupertino_icons: ^1.0.8
   shared_preferences: ^2.5.4
   hive: ^2.2.3
-  path_provider: ^2.1.5
+  path_provider: ^2.1.6
   sqflite: ^2.4.2
   path: ^1.9.1
   http: ^1.6.0
   dio: ^5.9.2
   flutter_dotenv: ^6.0.1
   crypto: ^3.0.7
+  font_awesome_flutter: ^11.0.0
+  percent_indicator: ^4.2.5
+  auto_size_text: ^3.0.0
+  animated_text_kit: ^4.3.0
+  convex_bottom_bar: ^3.2.0
+  brasil_fields: ^1.19.0
+  intl: ^0.20.2
+  easy_localization: ^3.0.8
+  battery_plus: ^7.0.0
+  url_launcher: ^6.3.2
+  share_plus: ^13.1.0
+  # Checa informações
+  package_info_plus: ^10.1.0 # Informações do pacote
+  device_info_plus: ^13.1.0 # Informações do dispositivo
+  connectivity_plus: ^7.1.1 # Informações de conectividade
+  geolocator: ^14.0.3 # Informações de geolocalização
+  # Usando o dispositivo no app
+  mobile_scanner: ^7.2.0 # Scanner de QR code e codigo de barras
+  image_picker: ^1.2.3 # Pegar imagem da camera ou galeria
+  gallery_saver_plus: ^3.2.9 # Salvar imagem na galeria
+  image_cropper: ^12.2.1 # Cropa imagens
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   hive_generator: ^2.0.1
   build_runner: ^2.2.1
+  flutter_launcher_icons: ^0.14.4
 
   flutter_lints: ^6.0.0
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "lib/assets/icon/icon.jpg"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  # Caso queira gerar para Web, Windows ou Macos descomente os respectivos trechos abaixo
+  # web:
+  #   generate: true
+  #   image_path: "path/to/image.png"
+  #   background_color: "#hexcode"
+  #   theme_color: "#hexcode"
+  # windows:
+  #   generate: true
+  #   image_path: "path/to/image.png"
+  #   icon_size: 48 # min:48, max:256, default: 48
+  # macos:
+  #   generate: true
+  #   image_path: "path/to/image.png"
 
 flutter:
   uses-material-design: true
   assets:
     - lib/assets/images/
+    - lib/assets/translations/
     - .env
 

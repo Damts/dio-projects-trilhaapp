@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:trilhaapp/models/configuracoes_model.dart';
 import 'package:trilhaapp/repositories/configuracoes_repository.dart';
@@ -97,7 +98,7 @@ class _ConfiguracoesHivePageState extends State<ConfiguracoesHivePage> {
                       context: context, 
                       builder: (_) {
                         return AlertDialog(
-                          title: Text("Meu App"),
+                          title: Text("APP_TITLE".tr()),
                           content: Text("Favor informar uma altura valida"),
                           actions: [
                             TextButton(

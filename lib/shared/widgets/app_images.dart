@@ -6,4 +6,13 @@ class AppImages {
   static String get luminosity => "lib/assets/images/luminosity.jpg";
   static String get erenMikasa => "lib/assets/images/eren-mikasa.png";
   static String get momoKen => "lib/assets/images/momo-ken.jpg";
+
+  static List<String> listaImagens = [
+    stew,
+    colin,
+    lpu,
+    luminosity,
+    erenMikasa,
+    momoKen
+  ];
 }
