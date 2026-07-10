@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:trilhaapp/services/app_storage_service.dart';
 
@@ -99,7 +100,7 @@ class _ConfiguracoesSharedPreferencesPageState extends State<ConfiguracoesShared
                         context: context, 
                         builder: (_) {
                           return AlertDialog(
-                            title: Text("Meu App"),
+                            title: Text("APP_TITTLE".tr()),
                             content: Text("Favor informar uma altura valida"),
                             actions: [
                               TextButton(
