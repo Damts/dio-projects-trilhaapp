@@ -43,6 +43,8 @@ dependencies:
   image_picker: ^1.2.3 # Pegar imagem da camera ou galeria
   gallery_saver_plus: ^3.2.9 # Salvar imagem na galeria
   image_cropper: ^12.2.1 # Cropa imagens
+  # Gerenciamento de estado
+  provider: ^6.1.5+1 # Gerenciamento de estado
 
 dev_dependencies:
   flutter_test:

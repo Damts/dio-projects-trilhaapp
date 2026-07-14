@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:trilhaapp/pages/home_page.dart';
+import 'package:trilhaapp/pages/login_page.dart';
 
 class SplashScreenDelayPage extends StatefulWidget {
   const SplashScreenDelayPage({super.key});
@@ -22,7 +22,7 @@ class _SplashScreenDelayPageState extends State<SplashScreenDelayPage> {
       if (!mounted) return;
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (builder) => const HomePage()),
+        MaterialPageRoute(builder: (builder) => const LoginPage()),
       );
     });
   }
